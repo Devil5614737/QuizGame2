@@ -1,0 +1,368 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Subjectivity",sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-transition: background-color .4s ease-in-out;
+  transition: background-color .4s ease-in-out;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body.active {
+  background-color: black;
+  color: white;
+}
+
+body.active .ol li {
+  color: #5f5f5f;
+}
+
+.header .headerContainer {
+  padding: 1.8em 4%;
+}
+
+.header .headerContainer .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .headerContainer .nav .logo {
+  font-weight: bold;
+  font-size: 3rem;
+  color: #006aff;
+}
+
+.header .headerContainer .nav .themeToggle {
+  font-weight: 500;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.main {
+  margin-top: 42px;
+}
+
+.main .mainContainer {
+  padding: 1em 4%;
+}
+
+.main .mainContainer .scoreContainer {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.main .mainContainer .scoreContainer .scoreWrapper {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.main .mainContainer .scoreContainer .scoreWrapper .score {
+  font-weight: bold;
+  font-size: 12rem;
+}
+
+.main .mainContainer .scoreContainer .scoreWrapper .scoreTitle {
+  position: absolute;
+  top: 0;
+  right: -65px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.main .mainContainer .questionContainer {
+  margin-top: 42px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.main .mainContainer .questionContainer .question {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.main .mainContainer .optionsContainer {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  margin-top: 22px;
+  width: 100%;
+}
+
+.main .mainContainer .optionsContainer .ol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: center;
+}
+
+.main .mainContainer .optionsContainer .ol li {
+  font-weight: 500;
+  font-size: 1.8rem;
+  margin-bottom: 22px;
+  padding: .2em;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.main .mainContainer .buttonContainer {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  margin-top: 22px;
+}
+
+.main .mainContainer .buttonContainer .btn {
+  padding: 0.4em 2.5em;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.7rem;
+  border: 2px solid #006aff;
+  background-color: white;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  display: none;
+}
+
+.main .mainContainer .buttonContainer .btn:hover {
+  color: white;
+}
+
+.main .mainContainer .buttonContainer .btn:hover::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #006aff;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-animation-name: animateButton;
+          animation-name: animateButton;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+}
+
+.main .mainContainer .buttonContainer .btn.active {
+  display: block;
+}
+
+@-webkit-keyframes animateButton {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes animateButton {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.correct {
+  background-color: greenyellow;
+}
+
+.incorrect {
+  background-color: orangered;
+  -webkit-animation-name: incorrect;
+          animation-name: incorrect;
+  -webkit-animation-duration: .1s;
+          animation-duration: .1s;
+  -webkit-animation-iteration-count: 3;
+          animation-iteration-count: 3;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+
+@-webkit-keyframes incorrect {
+  0% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  100% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+}
+
+@keyframes incorrect {
+  0% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  100% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+}
+
+.scoreContainer.active {
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.scoreContainer.active::before {
+  content: '+1';
+  position: absolute;
+  color: yellowgreen;
+  font-size: 4rem;
+  -webkit-animation-name: score;
+          animation-name: score;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+}
+
+@-webkit-keyframes score {
+  0% {
+    top: -0px;
+  }
+  100% {
+    top: -60px;
+    opacity: 0;
+  }
+}
+
+@keyframes score {
+  0% {
+    top: -0px;
+  }
+  100% {
+    top: -60px;
+    opacity: 0;
+  }
+}
+
+.score.active {
+  -webkit-animation-name: scorecolor;
+          animation-name: scorecolor;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+@-webkit-keyframes scorecolor {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scorecolor {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.btn.active {
+  display: none;
+}
+
+.startBtn {
+  padding: 1em 4em;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 2rem;
+  border: 5px solid #006aff;
+  background-color: white;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  opacity: 1;
+}
+
+.startBtn:hover {
+  color: white;
+}
+
+.startBtn:hover::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #006aff;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-animation-name: animateButton;
+          animation-name: animateButton;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+}
+
+.startBtn.active {
+  display: none;
+}
+
+.rulesContainer {
+  margin-top: 28px;
+}
+
+.rulesContainer p {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.rulesContainer ol {
+  margin-top: 12px;
+}
+
+.rulesContainer ol li {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.rulesContainer.active {
+  display: none;
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <title>Quizzy</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <header class="header">
+      <section class="headerContainer">
+          <div class="nav">
+              <p class="logo">Quizzy</p>
+              <p class="themeToggle">Dark mode</p>
+          </div>
+      </section>
+  </header>
+
+  <main class="main">
+      <section class="mainContainer">
+   
+  <div class="scoreContainer ">
+      <div class="scoreWrapper active">
+          <p class="score">0</p>
+          <p class="scoreTitle">Score</p>
+      </div>
+    
+      
+  </div>
+
+  <div class="questionContainer">
+    <button class="startBtn ">start</button>
+    <div class="rulesContainer">
+        <p>Rules</p>
+        <ol type="1">
+            <li>On every right answer you get one point</li>
+            <li>On every wrong answer you lose one point</li>
+        </ol>
+    </div>
+      <p class="question"></p>
+  </div>
+<div class="optionsContainer">
+    <ol class="ol" type="A">
+    </ol>
+</div>
+</section>
+
+  </main>
+
+
+<script defer src="index.js"></script>
+</html>

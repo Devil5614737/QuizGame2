@@ -1,0 +1,250 @@
+@import "global";
+
+.header {
+  .headerContainer {
+      padding: 1.8em 4%;
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo {
+        font-weight: bold;
+        font-size: 3rem;
+        color: #006aff;
+      }
+      .themeToggle {
+        font-weight: 500;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.main {
+    margin-top: 42px;
+  .mainContainer {
+    padding: 1em 4%;
+    .scoreContainer {
+      display: grid;
+      place-items: center;
+      position: relative;
+      .scoreWrapper{
+        position: relative;
+        width: fit-content;
+        .score {
+          font-weight: bold;
+          font-size: 12rem;
+          
+
+        }
+        .scoreTitle {
+          position: absolute;
+          top: 0;
+          right: -65px;
+          font-size: 2rem;
+          font-weight: bold;
+        }
+       
+      }
+    }
+    .questionContainer {
+      margin-top: 42px;
+      display: grid;
+      place-items: center;
+      .question {
+        font-weight: bold;
+        font-size: 3rem;
+      }
+    }
+    .optionsContainer {
+      display: grid;
+      place-items: center;
+      margin-top: 22px;
+      width: 100%;
+      .ol {
+        display: flex;
+        flex-direction: column;
+        
+        justify-self: center;
+        li {
+          font-weight: 500;
+          font-size: 1.8rem;
+         margin-bottom: 22px;
+         padding: .2em;
+         border-radius: 3px;
+         cursor: pointer;
+        }
+      }
+    }
+    .buttonContainer {
+      display: grid;
+      place-items: center;
+      margin-top: 22px;
+      .btn {
+        padding: 0.4em 2.5em;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1.7rem;
+        border: 2px solid #006aff;
+        background-color: white;
+        border-radius: 6px;
+        position: relative;
+        z-index: 1;
+        transition: all .4s ease-in-out;
+        display: none;
+        &:hover {
+            color: white  ;
+          &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #006aff;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            animation-name: animateButton;
+            animation-iteration-count: 1;
+            animation-duration: .4s;
+          }
+        }
+      }
+      .btn.active{
+        display: block;
+      }
+    }
+  }
+}
+
+
+
+@keyframes animateButton {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+
+.correct{
+background-color: greenyellow;
+
+
+}
+.incorrect{
+  background-color: orangered;
+  animation-name: incorrect;
+  animation-duration: .1s;
+  animation-iteration-count: 3;
+  transition: 200ms ease-in-out;
+}
+
+
+@keyframes incorrect {
+  0%{
+    transform:translateX(5px);
+  }
+  100%{
+    transform:translateX(-5px);
+  }
+}
+
+.scoreContainer.active{
+  transition: all .5s ease-in-out;
+
+  &::before{
+    // opacity: 0;
+    content:'+1';
+    position: absolute;
+    color: yellowgreen;
+    font-size: 4rem;
+    animation-name: score ;
+    animation-iteration-count: 1;
+    animation-duration: .5s;
+  }
+}
+@keyframes score {
+  0%{
+    top: -0px;
+  }
+  100%{
+    top: -60px;
+    opacity: 0;
+  }
+}
+
+
+.score.active{
+  animation-name: scorecolor;
+          animation-duration: .5s;
+          animation-iteration-count: 1;
+}
+
+@keyframes scorecolor {
+  0%{
+    transform: scale(.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.btn.active{
+  display: none;
+}
+.startBtn{
+  padding: 1em 4em;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 2rem;
+  border: 5px solid #006aff;
+  background-color: white;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  transition: all .4s ease-in-out;
+  opacity: 1;
+  &:hover {
+      color: white  ;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #006aff;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      animation-name: animateButton;
+      animation-iteration-count: 1;
+      animation-duration: .4s;
+    }
+}
+}
+
+.startBtn.active{
+  display: none;
+}
+
+
+
+.rulesContainer{
+  margin-top: 28px;
+  p{
+    font-weight: 500;
+    font-size: 2rem;
+  }
+  ol{
+    margin-top: 12px;
+    li{
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+  }
+}
+.rulesContainer.active{
+  display: none;
+}
